@@ -1,0 +1,43 @@
+{
+    "containerDefinitions": [
+      {
+        "essential": true,
+        "name": "travel-plan-eureka-api",
+        "image": "",
+        "portMappings": [
+          {
+            "containerPort": 7001,
+            "hostPort": 7001,
+            "protocol": "tcp"
+          }
+        ],
+        "logConfiguration":{
+          "logDriver":"awslogs",
+          "options":{
+            "awslogs-group":"ecs/travel-app-log-grp-main-app",
+            "awslogs-region":"us-east-1",
+            "awslogs-stream-prefix":"eureka"
+          }
+        }
+      }
+
+    ],
+
+    "cpu": "256",
+    "executionRoleArn": "arn:aws:iam::356567610291:role/ecsTaskExecutionRole",
+    "family": "f-task-def-travel-plan-eureka-api",
+    "memory": "512",
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": [ 
+        "FARGATE" 
+     ],
+    "volumes": [
+      {
+        "name": "efs-volume",
+        "efsVolumeConfiguration": {
+          "fileSystemId": "fs-c2633f40",
+          "transitEncryption": "ENABLED"
+        }
+      }
+    ]
+ }
