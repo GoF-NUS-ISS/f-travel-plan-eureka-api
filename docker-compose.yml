@@ -3,7 +3,7 @@ services:
     travel-plan-eureka:
       build: ./microservicecloud/microservicecloud-eureka-7001
       image: eureka1
-      container_name: eureka1
+      container_name: eureka.local
       ports:
         - "7001:7001"
 
