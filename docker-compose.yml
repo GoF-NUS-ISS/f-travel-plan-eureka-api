@@ -1,0 +1,13 @@
+version: "3"
+services:
+    travel-plan-eureka:
+      build: ./microservicecloud/microservicecloud-eureka-7001
+      image: eureka1
+      container_name: eureka1
+      ports:
+        - "7001:7001"
+
+networks:
+  default:
+    external:
+      name: test-dev-shared-network
